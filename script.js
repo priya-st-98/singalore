@@ -29,7 +29,7 @@ function initMap() {
             // Create custom content for the info window
             var contentHtml = `
                 <div>
-                    <h1>${name}</h1>
+                    <h3>${name}</h3>
                     <p>${description}</p>
                     ${photoUrl ? `<img src="${photoUrl}" alt="Photo" />` : ''}
                     ${hyperlink ? `<a href="${hyperlink}" target="_blank">Read more here</a>` : ''}
