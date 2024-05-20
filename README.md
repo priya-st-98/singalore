@@ -1,2 +1,2 @@
 # singalore
-The Stories of our Streets
+Stories of our streets
