@@ -23,7 +23,15 @@ function initMap() {
 
         for (var i = 0; i < placemarks.length; i++) {
             var placemark = placemarks[i];
-            var name = placemark.getElementsByTagName('name')[0]?.textContent || 'No Name';
+            var name = placemark.getElementsByTagName('SimpleData')[0]?.textContent || 'No Name';
+            var simpleDataElements = placemark.getElementsByTagName('SimpleData');
+            for (var j = 0; j < simpleDataElements.length; j++) {
+                var simpleData = simpleDataElements[j];
+                var nameAttribute = simpleData.getAttribute('name');
+                if (nameAttribute === 'NAME') {
+                    name = simpleData.textContent;
+                }
+            }
             var descriptionNode = placemark.getElementsByTagName('description')[0];
             var description = descriptionNode ? extractDescription(descriptionNode.textContent) : 'No Description';
             var photoUrl = placemark.getElementsByTagName('PHOTOURL')[0]?.textContent || '';
@@ -146,7 +154,7 @@ function findNearbyPlace() {
     if (nearestPlace) {
         showPlaceAlert(nearestPlace);
     } else {
-        alert('No places of interest found within 1 km radius.');
+        alert('Sorry! There are no places of interest near you. Explore our interactive map below instead!');
     }
 }
 
@@ -165,6 +173,7 @@ function showPlaceAlert(place) {
     `;
 
     const alertElement = document.createElement('div');
+    alertElement.id = 'alertContainer';
     alertElement.innerHTML = alertContent;
     document.body.appendChild(alertElement);
 
@@ -199,7 +208,10 @@ function calculateDistance(lat1, lng1, lat2, lng2) {
 // Function to show the next nearest place
 function showNextPlace() {
     console.log("Showing next place...");
-    document.getElementById('placeAlert').remove(); // Remove the current alert
+    const alertContainer = document.getElementById('alertContainer');
+    if (alertContainer) {
+        alertContainer.remove(); // Remove the current alert
+    }
     placeIndex++;
     if (placeIndex >= places.length) {
         placeIndex = 0;
@@ -210,7 +222,10 @@ function showNextPlace() {
 // Function to stop showing alerts
 function stopAlerts() {
     console.log("Stopping alerts...");
-    document.getElementById('placeAlert').remove(); // Remove the current alert
+    const alertContainer = document.getElementById('alertContainer');
+    if (alertContainer) {
+        alertContainer.remove(); // Remove the current alert
+    }
 }
 
 // Load the Google Maps API asynchronously
@@ -220,4 +235,4 @@ function loadGoogleMaps() {
     document.head.appendChild(script);
 }
 
-loadGoogleMaps(); // Call the function to load the API
+loadGoogleMaps(); // Call the function to load
