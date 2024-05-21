@@ -1,0 +1,84 @@
+*{
+    font-family: helvetica;
+}
+
+body {
+    background-color: #D5A361;
+}
+
+.header-container {
+    height: 390px; /* Adjust the height as needed */
+    overflow: hidden; /* Ensures the sides of the image get cut off if necessary */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-image {
+    margin-top: -70px;
+    width: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-height: 100%;
+    min-width: 100%;
+    z-index: -1;
+    object-fit: cover; /* Ensures the image covers the container and is centered */
+}
+
+#backgroundContainer {
+    background-color: #dfdac6;
+    margin-top: 100px;
+    margin-left: -10px;
+    margin-right: -10px;
+    height: 1000px;
+}
+
+#aboutTitle {
+    text-align: center;
+    font-size: 80px;
+    color: #3D4C8C;
+    letter-spacing: -0.3rem;
+    margin-top: -1100px;
+}
+
+#aboutContainer {
+    height: 200px;
+    padding: 80px;
+    margin: 100px;
+    margin-top: -100px;
+    align-items: left;
+    border-radius: 100px;
+}
+
+h4 {
+    text-align: center;
+    font-size: 18x;
+    font-weight: 580;
+    color: #2e2a2a;
+    letter-spacing: -0.01rem;
+    margin-top: 0px;
+    margin-bottom: 20px;
+
+}
+
+#homePage { /* Style for the button */
+    display: inline-block;
+    padding: 10px 20px; /* Adjust padding as needed */
+    background-color: #8F3A38; /* Red button background color */
+    color: #FFFFFF; /* Button text color */
+    border-radius: 20px; /* Rounded corners */
+    text-align: center;
+    text-decoration: none; /* Remove underline from link */
+    font-size: 16px; /* Adjust font size as needed */
+    font-weight: bold; /* Make the text bold */
+    position: fixed; /* Positioning */
+    top: 30px; /* Adjust positioning from top */
+    left: 30px; /* Adjust positioning from left */
+    z-index: 4
+}
+
+#homePage:hover {
+    background-color: #3D4C8C; /* Blue color on hover */
+}

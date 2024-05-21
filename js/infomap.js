@@ -162,7 +162,7 @@ function findNearbyPlace() {
 function showPlaceAlert(place) {
     const alertContent = `
         <div id="placeAlert">
-            <h3>${place.name}</h3>
+            <h3><span class="near-text">You're near</span> <span class="place-name">${place.name}</span></h3>
             <p>${place.description}</p>
             ${place.photoUrl ? `<img src="${place.photoUrl}" alt="Photo" />` : ''}
             ${place.hyperlink ? `<a href="${place.hyperlink}" target="_blank">Read more here</a>` : ''}
@@ -182,9 +182,6 @@ function showPlaceAlert(place) {
     alertElement.style.top = '50%';
     alertElement.style.left = '50%';
     alertElement.style.transform = 'translate(-50%, -50%)';
-    alertElement.style.backgroundColor = '#fff';
-    alertElement.style.padding = '20px';
-    alertElement.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
     alertElement.style.zIndex = '1000';
 
     // Set up event listeners for the buttons

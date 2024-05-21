@@ -13,7 +13,7 @@ body, html {
 }
 
 .header-container {
-    height: 500px; /* Adjust the height as needed */
+    height: 390px; /* Adjust the height as needed */
     overflow: hidden; /* Ensures the sides of the image get cut off if necessary */
     display: flex;
     justify-content: center;
@@ -21,8 +21,8 @@ body, html {
 }
 
 .header-image {
-    margin-top: -50px;
-    width: 100%;
+    margin-top: -70px;
+    width: 50%;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -35,12 +35,10 @@ body, html {
 
 h1 {
     text-align: center;
-    font-size: 120px;
+    font-size: 100px;
     color: #3D4C8C;
     letter-spacing: -0.3rem;
-    padding: 0px;
-    margin-top: -70px;
-    margin-bottom: 10px;
+    margin-top: -50px;
 }
 
 h2 {
@@ -48,9 +46,95 @@ h2 {
     font-size: 20px;
     color: #2e2a2a;
     letter-spacing: -0.03rem;
+    margin-top: -50px;
+
+}
+
+h4 {
+    text-align: center;
+    font-size: 18x;
+    font-weight: 580;
+    color: #2e2a2a;
+    letter-spacing: -0.01rem;
+    margin-top: 40px;
+    margin-bottom: 20px;
+
 }
 
 body {
-    margin-top: 100px;
     background-color: #D5A361;
+}
+
+#alertContainer {
+    background-color: #8F3A38; /* Blue background */
+    border-radius: 40px; /* Rounded corners */
+    padding: 30px;
+    color: #ffffff; /* White text */
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+#alertContainer .near-text {
+    color: #FEB52F; /* Yellow text for "You're near" */
+}
+
+#alertContainer h3 {
+    margin-top: 20;
+}
+
+#alertContainer p {
+    margin-bottom: -10px;
+}
+
+#alertContainer img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px; /* Rounded corners for images */
+}
+
+#alertContainer a {
+    color: #D5A361; /* Yellow color for links */
+    text-decoration: none;
+}
+
+#alertContainer a:hover {
+    text-decoration: underline;
+}
+
+#alertContainer button {
+    background-color: #FEB52F; /* Yellow background */
+    color: #8F3A38; /* Blue text */
+    border: none;
+    border-radius: 20px; /* Rounded corners */
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    letter-spacing: -0.01rem;
+    font-weight: 550;
+}
+
+#alertContainer button:hover {
+    background-color: #f2ad2e; /* Slightly darker yellow on hover */
+}
+
+
+#aboutPage { /* Style for the button */
+    display: inline-block;
+    padding: 10px 20px; /* Adjust padding as needed */
+    background-color: #3D4C8C; /* Blue button background color */
+    color: #FFFFFF; /* Button text color */
+    border-radius: 20px; /* Rounded corners */
+    text-align: center;
+    text-decoration: none; /* Remove underline from link */
+    font-size: 16px; /* Adjust font size as needed */
+    font-weight: bold; /* Make the text bold */
+    position: fixed; /* Positioning */
+    top: 30px; /* Adjust positioning from top */
+    left: 30px; /* Adjust positioning from left */
+    z-index: 4
+}
+
+#aboutPage:hover {
+    background-color: #8F3A38; /* Red color on hover */
 }
