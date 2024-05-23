@@ -157,3 +157,18 @@ h5.legalDisclaimer {
     border-radius: 50px; /* Rounded corners */
     color: #ffffff; /* White text */
 }
+
+#map { 
+    border-radius: 15px;
+    margin: 20px;
+}
+
+#backgroundContainer {
+    background-color: #dfdac6;
+    margin-top: 100px;
+    margin-left: -10px;
+    margin-right: -10px;
+    margin-bottom: -2150px;
+    height: 2000px;
+    z-index: 3;
+}

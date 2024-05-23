@@ -3,6 +3,7 @@ let map;
 let currentInfoWindow; // Global variable to hold the currently open info window
 let userLocation; // Variable to hold the user's current location
 let places = []; // Array to hold all places of interest
+let nearbyPlaces = []; // Array to hold nearby places of interest
 let placeIndex = 0; // Index to track the current place being shown
 
 // Define the initMap() function
@@ -128,7 +129,7 @@ function getUserLocation() {
                 lng: position.coords.longitude
             };
             console.log('User location:', userLocation);
-            findNearbyPlace();
+            findNearbyPlaces();
         }, error => {
             console.error('Error getting location:', error);
         });
@@ -137,22 +138,17 @@ function getUserLocation() {
     }
 }
 
-// Function to find the nearest place within 1 km
-function findNearbyPlace() {
-    let nearestPlace = null;
-    let nearestDistance = Infinity;
-
-    places.forEach(place => {
+// Function to find the nearest places within 1 km
+function findNearbyPlaces() {
+    nearbyPlaces = places.filter(place => {
         let distance = calculateDistance(userLocation.lat, userLocation.lng, place.lat, place.lng);
         console.log(`Distance to ${place.name}: ${distance} km`);
-        if (distance < 1 && distance < nearestDistance) {
-            nearestPlace = place;
-            nearestDistance = distance;
-        }
+        return distance < 1;
     });
 
-    if (nearestPlace) {
-        showPlaceAlert(nearestPlace);
+    if (nearbyPlaces.length > 0) {
+        placeIndex = 0; // Reset the place index
+        showPlaceAlert(nearbyPlaces[placeIndex]);
     } else {
         alert('Sorry! There are no places of interest near you. Explore our interactive map below instead!');
     }
@@ -210,10 +206,10 @@ function showNextPlace() {
         alertContainer.remove(); // Remove the current alert
     }
     placeIndex++;
-    if (placeIndex >= places.length) {
+    if (placeIndex >= nearbyPlaces.length) {
         placeIndex = 0;
     }
-    showPlaceAlert(places[placeIndex]); // Show the next place
+    showPlaceAlert(nearbyPlaces[placeIndex]); // Show the next nearby place
 }
 
 // Function to stop showing alerts
@@ -232,4 +228,4 @@ function loadGoogleMaps() {
     document.head.appendChild(script);
 }
 
-loadGoogleMaps(); // Call the function to load
+loadGoogleMaps(); // Call the function to load 
