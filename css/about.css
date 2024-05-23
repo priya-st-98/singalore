@@ -86,3 +86,21 @@ h4 {
 #webAppStatement { 
     color:#8F3A38;
 }
+
+hr { 
+    border-color: #3D4C8C;
+}
+
+h2 { 
+    color: #3D4C8C; 
+}
+
+#resourcesContainer { 
+    margin-top: 40px; 
+    align: left;
+    padding: 40px;
+    background-color: #3D4C8C; 
+    border-radius: 30px; /* Rounded corners */
+    color: #ffffff; /* White text */
+
+}

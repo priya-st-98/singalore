@@ -6,6 +6,16 @@
     <link rel="stylesheet" href="/css/about.css">
     <title>Singa-Lore</title>
     <link rel="icon" type="image/x-icon" href="/resources/singalore icon.png">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7CQ1S8JCTN"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-7CQ1S8JCTN');
+        </script>
+
 </head>
 
 <body>
@@ -20,13 +30,13 @@
 
     <div id="aboutContainer">
 
-        <h2>Problem Statement</h2>
+        <hr/><br/><h2>Problem Statement</h2>
         <p>Young Singaporeans are self-learners when it comes to the history and heritage of Singapore, and need more effective, experiential ways of learning about and engaging with their heritage. <br/> <br/> The current reliance on traditional classroom-based teaching approaches results in a diminished understanding of Singapore's heritage, which undermines their sense of identity, belonging, and well-being.</p>
-        <b> Resources </b>
+        <div id=resourcesContainer><b> Resources </b>
             <p> <a href="https://lkyspp.nus.edu.sg/docs/default-source/ips/survey-on-the-perceptions-of-singapore-s-built-heritage-and-landmarks_executive-summary.pdf">IPS Survey on the Perceptions of Singapore's Built Heritage and Landmarks</a> 
             <br/>'Each individual living in Singapore has a stake in built heritage too, and can benefit from incorporating it more consciously into social life, by understanding more about its history and actively shaping it in the present. This can translate to a stronger sense of collective solidarity, as reflected in the positive relationships between valuing heritage and national identity found across all ages.'</p>
-        
-        <br/><h2> Solution </h2>
+        </div>
+            <br/><hr/><br/><h2> Solution </h2>
         <p> While reading more about the problem, I made 3 observations/common assumptions, which also served as hypotheses to guide the design of my solution:
            
             <ol>
@@ -37,14 +47,14 @@
             
             <br/> Based on these hypotheses, I reasoned that a mobile app could be a fun, handheld heritage companion for the everyday Singaporean youth.<br/></p>
 
-        <br/><h2>Features</h2>
+            <br/><hr/><br/><h2>Features</h2>
         <p> When location services are turned on, the app could provide push notifications on areas, streets, and places of interest the user visits or passes by in their everyday lives. These push notifications will include snippets of history or interesting tidbits on the everyday places visited by users - for e.g., the history behind street names, significant events, cultural symbols in the landscape. The app could also one day be able to crowdsource currently unrecorded stories, events, or memories from users to augment Singapore's existing heritage databases. </p>
         
-        <br/><h2 id="webAppStatement"> This is a web app prototype of this mobile app solution.</h2>
+        <br/><hr/><br/><h2 id="webAppStatement"> This is a web app prototype of this mobile app solution.</h2>
         <p> The site asks you for permission to know your current location. Based on your location, it provides you with pop-ups on places near you and their histories. You can also explore more of Singapore's places and histories through an interactive map found on the site.
         </p>
 
-         </br><h2> Data </h2>
+        <br/><hr/><br/><h2> Data </h2>
         <p> I used <a href="https://beta.data.gov.sg/collections/1477/datasets/d_9606da8c76387bf74627b3e7797f781d/view">streets and places data</a> from data.gov.sg. </p>
     </div>
  
