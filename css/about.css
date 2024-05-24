@@ -63,16 +63,6 @@ hr {
     width: 100%;
 }
 
-#aboutTitle {
-    text-align: center;
-    font-size: 100px;
-    color: #3D4C8C;
-    letter-spacing: -0.35rem;
-    z-index: 1;
-    line-height: 85%;
-    margin-bottom: 5%;
-}
-
 h2 { 
     color: #3D4C8C; 
     font-size: 24px;
@@ -100,7 +90,7 @@ li {
 
 #resourcesContainer { 
     margin-top: 30px; 
-    padding: 30px;
+    padding: 24px;
     background-color: #3D4C8C;
     border-radius: 30px;
     color: #ffffff;
@@ -108,6 +98,16 @@ li {
     font-weight: 200;
     width: 100%;
     text-align: left;
+}
+
+#aboutTitle {
+    text-align: center;
+    font-size: 100px;
+    color: #3D4C8C;
+    letter-spacing: -0.35rem;
+    z-index: 1;
+    line-height: 85%;
+    margin-bottom: 5%;
 }
 
 #resources { 
