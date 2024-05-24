@@ -2,7 +2,7 @@
 * {
     font-family: helvetica;
     margin: 0;
-    padding: 10px;
+    padding: 0px;
     box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
 }
 
@@ -19,6 +19,7 @@ body {
     flex-direction: column;
     align-items: center;
     position: relative; /* Ensure relative positioning for absolute children */
+    padding: 10px;
 }
 
 .navigation {
@@ -51,7 +52,7 @@ h1 {
     font-size: 100px;
     color: #3D4C8C;
     letter-spacing: -0.4rem;
-    line-height: 90%;
+    line-height: 50%;
     z-index: 1;
 }
 
@@ -61,7 +62,7 @@ h2 {
     color: #2e2a2a;
     letter-spacing: -0.03rem;
     text-align: center;
-    line-height: 90%;
+    line-height: 50%;
     z-index: 1;
 }
 
