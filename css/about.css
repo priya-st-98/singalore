@@ -70,10 +70,19 @@ h2 {
     margin-bottom: 2%;
 }
 
-a { 
+a, #primaryResearch, #secondaryResearch { 
     color: #FEB52F;
     font-weight: bold;
     text-decoration: none;
+    font-size: 14px;
+}
+
+#primaryResearchContainer h2 { 
+    font-size: 18px;
+}
+
+#secondaryResearchContainer h2 { 
+    font-size: 18px;
 }
 
 ol { 
@@ -88,9 +97,20 @@ li {
     padding-left: 1.5%;
 }
 
-#resourcesContainer { 
+#primaryResearchContainer { 
     margin-top: 30px; 
-    padding: 24px;
+    padding: 36px;
+    background-color: #8F3A38;
+    border-radius: 30px;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 200;
+    width: 100%;
+    text-align: left;
+}
+#secondaryResearchContainer { 
+    margin-top: 30px; 
+    padding: 36px;
     background-color: #3D4C8C;
     border-radius: 30px;
     color: #ffffff;
@@ -108,12 +128,6 @@ li {
     z-index: 1;
     line-height: 85%;
     margin-bottom: 5%;
-}
-
-#resources { 
-    color: #FEB52F;
-    text-align: left;
-    font-size: 16px;
 }
 
 #thisIsAWebAppPrototype {
