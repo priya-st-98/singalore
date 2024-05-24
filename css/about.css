@@ -1,111 +1,86 @@
-*{
+* {
     font-family: helvetica;
 }
 
-p, ol, ul { 
-    font-size: 15px;
-
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
 }
-body {
+
+body { 
     background-color: #D5A361;
-}
-
-.header-container {
-    height: 390px; /* Adjust the height as needed */
-    overflow: hidden; /* Ensures the sides of the image get cut off if necessary */
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    position: relative; /* Ensure relative positioning for absolute children */
 }
 
-.header-image {
-    margin-top: -70px;
-    width: 50%;
+/* STYLING FOR DRAGON PLAYGROUND HEADER */
+
+.headerImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the container */
+    object-position: center; /* Ensure the image is centered */
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    min-height: 100%;
-    min-width: 100%;
+    top: 0;
+    left: 0;
     z-index: -1;
-    object-fit: cover; /* Ensures the image covers the container and is centered */
 }
 
-#backgroundContainer {
-    background-color: #dfdac6;
-    margin-top: 100px;
-    margin-left: -10px;
-    margin-right: -10px;
-    height: 2000px;
-}
+/* STYLING FOR TITLE */
 
 #aboutTitle {
+    position: absolute; /* Positioning to move it freely */
+    top: 60%; /* Adjust as needed to move up */
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
     font-size: 80px;
     color: #3D4C8C;
     letter-spacing: -0.3rem;
-    margin: -2100px;
+    line-height: 90%;
+    z-index: 2;
 }
+
+/* STYLING FOR CONTENT */
 
 #aboutContainer {
-    height: 200px;
-    padding: 80px;
+    background-color: #dfdac6;
+    width: 100%;
+    padding: 27%; /* Add padding inside the container */
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
     align-items: left;
-    border-radius: 100px;
-    margin-top: 2050px;
-    padding-top: 100px;
-    padding-left: 22%;
-    padding-right: 22%;
-}
-
-h4 {
-    text-align: center;
-    font-size: 18x;
-    font-weight: 580;
-    color: #2e2a2a;
-    letter-spacing: -0.01rem;
-
-}
-
-#homePage { /* Style for the button */
-    display: inline-block;
-    padding: 10px 20px; /* Adjust padding as needed */
-    background-color: #8F3A38; /* Red button background color */
-    color: #FFFFFF; /* Button text color */
-    border-radius: 20px; /* Rounded corners */
-    text-align: center;
-    text-decoration: none; /* Remove underline from link */
-    font-size: 16px; /* Adjust font size as needed */
-    font-weight: bold; /* Make the text bold */
-    position: fixed; /* Positioning */
-    top: 30px; /* Adjust positioning from top */
-    left: 30px; /* Adjust positioning from left */
-    z-index: 4
-}
-
-#homePage:hover {
-    background-color: #3D4C8C; /* Blue color on hover */
-}
-
-#webAppStatement { 
-    color:#8F3A38;
+    margin-top: 680px; /* Push the container down */
+    box-sizing: border-box; /* Include padding in the element's total width and height */
 }
 
 hr { 
     border-color: #3D4C8C;
-    border-width: 0.7px;
+    border-width: 0px;
+    width: 100%;
 }
 
 h2 { 
     color: #3D4C8C; 
+    font-size: 24px;
+    text-align: left;
 }
 
-h3 { 
-    color: #D5A361; 
+a { 
+    color: #D5A361;
+    font-weight: bold;
+    text-decoration: none;
 }
 
-h3 {
-    font-size: 20px;
+#resources { 
+    color: #D5A361;
+    text-align: left;
+    font-size: 16px;
 }
 
 #resourcesContainer { 
@@ -113,16 +88,36 @@ h3 {
     padding: 30px;
     padding-top: 20px;
     background-color: #3D4C8C;
-    border-radius: 30px; /* Rounded corners */
-    color: #ffffff; /* White text */
-    font-size: 12px;
-
-
-a { 
-    color: #D5A361;
-    font-weight: bold;
-    text-decoration: none;
-
+    border-radius: 30px;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 200;
+    width: 100%;
+    text-align: left;
 }
 
+#thisIsAWebAppPrototype {
+    color: #8F3A38;
+    text-align: left;
+
+/* STYLING NAVIGATION BUTTON */
+
+#homePage { 
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #8F3A38;
+    color: #FFFFFF;
+    border-radius: 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    z-index: 10;
+}
+
+#homePage:hover {
+    background-color: #3D4C8C;
 }
