@@ -14,6 +14,11 @@ function initMap() {
         zoom: 12
     });
 
+    // Custom marker icon with a different hue
+    const redIcon = {
+        url: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png', // URL to the default red marker icon
+    };
+
     // Load and parse the KML file
     fetch('StreetandPlacesKML.kml') // Replace with the correct path to your KML file
     .then(response => response.text())
@@ -40,11 +45,12 @@ function initMap() {
 
             // Create custom content for the info window
             var contentHtml = `
-                <div>
-                    <h3>${name}</h3>
+                <div class="info-window-content">
+                    <h4>${name}</h4>
                     <p>${description}</p>
                     ${photoUrl ? `<img src="${photoUrl}" alt="Photo" />` : ''}
                     ${hyperlink ? `<a href="${hyperlink}" target="_blank">Read more here</a>` : ''}
+                    <div class="custom-close-button">X</div>
                 </div>
             `;
 
@@ -59,7 +65,8 @@ function initMap() {
             var marker = new google.maps.Marker({
                 position: { lat: lat, lng: lng },
                 map: map,
-                title: name // Set the title of the marker to the name of the place
+                title: name, // Set the title of the marker to the name of the place
+                icon: redIcon // Use the custom red marker icon
             });
 
             // Store place data
@@ -82,12 +89,23 @@ function initMap() {
 
                     // Create a new info window with the custom content
                     var infoWindow = new google.maps.InfoWindow({
-                        content: contentHtml
+                        content: contentHtml,
+                        pixelOffset: new google.maps.Size(0, -30) // Adjust to remove the default arrow
                     });
 
                     // Open the info window
                     infoWindow.open(map, marker);
                     currentInfoWindow = infoWindow;
+
+                    // Add custom close button event
+                    google.maps.event.addListenerOnce(infoWindow, 'domready', function() {
+                        const customCloseButton = document.querySelector('.custom-close-button');
+                        if (customCloseButton) {
+                            customCloseButton.addEventListener('click', function() {
+                                infoWindow.close();
+                            });
+                        }
+                    });
                 };
             })(marker, contentHtml));
         }
@@ -158,7 +176,7 @@ function findNearbyPlaces() {
 function showPlaceAlert(place) {
     const alertContent = `
         <div id="placeAlert">
-            <h3><span class="near-text">You're near</span> <span class="place-name">${place.name}</span></h3>
+            <h4><span class="near-text">You're near</span> <span class="place-name">${place.name}</span></h4>
             <p>${place.description}</p>
             ${place.photoUrl ? `<img src="${place.photoUrl}" alt="Photo" />` : ''}
             ${place.hyperlink ? `<a href="${place.hyperlink}" target="_blank">Read more here</a>` : ''}
@@ -175,7 +193,7 @@ function showPlaceAlert(place) {
 
     // Position the alert at the center of the screen
     alertElement.style.position = 'fixed';
-    alertElement.style.top = '50%';
+    alertElement.style.top = '20%';
     alertElement.style.left = '50%';
     alertElement.style.transform = 'translate(-50%, -50%)';
     alertElement.style.zIndex = '1000';
@@ -228,4 +246,6 @@ function loadGoogleMaps() {
     document.head.appendChild(script);
 }
 
-loadGoogleMaps(); // Call the function to load 
+document.addEventListener('DOMContentLoaded', function() {
+    loadGoogleMaps(); // Call the function to load
+});

@@ -1,5 +1,10 @@
+/* STYLING FOR EVERYTHING */
+
 * {
     font-family: helvetica;
+    margin: 0; /* Reset margin for all elements */
+    padding: 0; /* Reset padding for all elements */
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
 }
 
 html, body {
@@ -17,6 +22,10 @@ body {
     position: relative; /* Ensure relative positioning for absolute children */
 }
 
+.navigation {
+    position: fixed;
+}
+
 /* STYLING FOR DRAGON PLAYGROUND HEADER */
 
 .headerImage {
@@ -25,38 +34,27 @@ body {
     object-fit: cover; /* Ensure the image covers the container */
     object-position: center; /* Ensure the image is centered */
     position: absolute;
-    top: 0;
     left: 0;
-    z-index: -1;
-}
+    right: 0;
+    top: -50px; /* Shift up by another 30px, total of 50px */
+    z-index: -5;
 
-/* STYLING FOR TITLE */
-
-#aboutTitle {
-    position: absolute; /* Positioning to move it freely */
-    top: 60%; /* Adjust as needed to move up */
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    font-size: 80px;
-    color: #3D4C8C;
-    letter-spacing: -0.3rem;
-    line-height: 90%;
-    z-index: 2;
 }
 
 /* STYLING FOR CONTENT */
 
 #aboutContainer {
-    background-color: #dfdac6;
+    background-color: #dfdac6; /* beige */
     width: 100%;
-    padding: 27%; /* Add padding inside the container */
-    padding-top: 50px;
     display: flex;
     flex-direction: column;
     align-items: left;
-    margin-top: 680px; /* Push the container down */
-    box-sizing: border-box; /* Include padding in the element's total width and height */
+    margin-top: 400px; /* adjust to push up and down */
+    box-sizing: border-box; /* includes padding in the element's total width and height */
+    z-index: 1;
+    padding-left: 26%;
+    padding-right: 26%;
+    padding-bottom: 8%;
 }
 
 hr { 
@@ -65,28 +63,44 @@ hr {
     width: 100%;
 }
 
+#aboutTitle {
+    text-align: center;
+    font-size: 100px;
+    color: #3D4C8C;
+    letter-spacing: -0.35rem;
+    z-index: 1;
+    line-height: 85%;
+    margin-bottom: 5%;
+}
+
 h2 { 
     color: #3D4C8C; 
     font-size: 24px;
     text-align: left;
+    margin-bottom: 2%;
 }
 
 a { 
-    color: #D5A361;
+    color: #FEB52F;
     font-weight: bold;
     text-decoration: none;
 }
 
-#resources { 
-    color: #D5A361;
-    text-align: left;
-    font-size: 16px;
+ol { 
+    color:#3D4C8C;
+    font-weight: 500;
+    line-height: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+li {
+    padding-left: 1.5%;
 }
 
 #resourcesContainer { 
     margin-top: 30px; 
     padding: 30px;
-    padding-top: 20px;
     background-color: #3D4C8C;
     border-radius: 30px;
     color: #ffffff;
@@ -96,9 +110,16 @@ a {
     text-align: left;
 }
 
+#resources { 
+    color: #FEB52F;
+    text-align: left;
+    font-size: 16px;
+}
+
 #thisIsAWebAppPrototype {
     color: #8F3A38;
     text-align: left;
+}
 
 /* STYLING NAVIGATION BUTTON */
 
@@ -113,11 +134,17 @@ a {
     font-size: 16px;
     font-weight: bold;
     position: fixed;
+    z-index: 5;
     top: 30px;
     left: 30px;
-    z-index: 10;
 }
 
 #homePage:hover {
     background-color: #3D4C8C;
+}
+
+.hyperlink { 
+    color: #3D4C8C;
+    font-weight: bold;
+    text-decoration: none;
 }

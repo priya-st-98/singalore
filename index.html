@@ -7,38 +7,38 @@
     <title>Singa-Lore</title>
     <link rel="icon" type="image/x-icon" href="resources/singalore icon.png">
 
-<!-- Google tag (gtag.js) -->
-     <script async src="https://www.googletagmanager.com/gtag/js?id=G-7CQ1S8JCTN"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-7CQ1S8JCTN');
-        </script>
-
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7CQ1S8JCTN"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-7CQ1S8JCTN');
+    </script>
 </head>
 
 <body>
-    <header class="header-container">
-        <img src="./resources/priya's dragon playground (expanded_v3).png" alt="Header image of a playground" class="header-image">
-    </header>
-    
-    <div id="backgroundContainer"></div>
+    <div class="headerImage-container">
+        <img src="/resources/priya's dragon playground (expanded_v3).png" alt="Header image of a playground" class="headerImage">
+    </div>
 
-    <h1>Singa-Lore</h1>
-    <h2>Stories of our streets</h2>
     <div><a href="/html/about.html" id="aboutPage">About</a></div>
-   
-    <h4> Enable location services to learn more about a place near you! <br/>
-        You can also explore more of Singapore's places and histories in this interactive map.</h3>
-    <div id="map" style="height: 100vh;"></div>
+    
+    <div id="backgroundContainer">
+        <h1>Singa-Lore</h1>
+        <h2>Stories of our streets</h2><br/><br/>
+        <h3 id="enableLocationServices"> Enable location services to learn more about a place near you!</h3>
+        <h3>You can also explore more of Singapore's places and histories in this interactive map.</h3>
 
-    <div id="legalDisclaimer-container">
-        
-        <h5 class="legalDisclaimer"> Disclaimer</h5> <p class="legalDisclaimer"> 
-            This website is created for learning purposes only. The information provided here should not be considered professional advice. Please note that we make no guarantees regarding the accuracy, completeness, or reliability of the contents of this website. Any actions you take based on the contents of this website are at your own risk. We are not liable for any losses or damages incurred from the use of this website.</p>
- </div>
- <br/>
+        <div id="map" style="height: 100vh;"></div>
+
+        <div id="legalDisclaimer-container">
+            <h5 class="legalDisclaimer"> Disclaimer</h5>
+            <p class="legalDisclaimer"> 
+                This website is created for learning purposes only. The information provided here should not be considered professional advice. Please note that we make no guarantees regarding the accuracy, completeness, or reliability of the contents of this website. Any actions you take based on the contents of this website are at your own risk. We are not liable for any losses or damages incurred from the use of this website.
+            </p>
+        </div>
+    </div>
     <script src="/js/home.js"></script>
 </body>
 </html>
