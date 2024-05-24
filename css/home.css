@@ -19,7 +19,6 @@ body {
     flex-direction: column;
     align-items: center;
     position: relative; /* Ensure relative positioning for absolute children */
-    padding: 10px;
 }
 
 .navigation {
