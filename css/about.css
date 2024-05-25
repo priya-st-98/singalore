@@ -1,10 +1,14 @@
 /* STYLING FOR EVERYTHING */
 
 * {
-    font-family: helvetica;
-    margin: 0; /* Reset margin for all elements */
-    padding: 0; /* Reset padding for all elements */
-    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+    @font-face {
+        font-family: Circular Std;
+        src: url('resources/CircularStd-Book.otf')
+    }
+    font-family: Circular Std;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* ensures padding and border are included in the element's total width and height */
 }
 
 html, body {
@@ -19,7 +23,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative; /* Ensure relative positioning for absolute children */
+    position: relative; /* ensure relative positioning for absolute children */
 }
 
 .navigation {
@@ -31,12 +35,12 @@ body {
 .headerImage {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensure the image covers the container */
-    object-position: center; /* Ensure the image is centered */
+    object-fit: cover; /* for image to cover the container */
+    object-position: center; /* for image to be center */
     position: absolute;
     left: 0;
     right: 0;
-    top: -50px; /* Shift up by another 30px, total of 50px */
+    top: -50px;
     z-index: -5;
 
 }
@@ -108,6 +112,7 @@ li {
     width: 100%;
     text-align: left;
 }
+
 #secondaryResearchContainer { 
     margin-top: 30px; 
     padding: 36px;

@@ -1,6 +1,11 @@
 /* STYLING FOR EVERYTHING */
 * {
-    font-family: helvetica;
+    @font-face {
+        font-family: Circular Std;
+        src: url('resources/CircularStd-Book.otf')
+    }
+    font-family: Circular Std;
+    font-weight: 0.01rem;
     margin: 0;
     padding: 0px;
     box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
