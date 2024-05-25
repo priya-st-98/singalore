@@ -1,4 +1,4 @@
-// Define global variables
+// Define global variables (variables that apply to whole page)
 let map;
 let currentInfoWindow; // Global variable to hold the currently open info window
 let userLocation; // Variable to hold the user's current location
@@ -6,7 +6,7 @@ let places = []; // Array to hold all places of interest
 let nearbyPlaces = []; // Array to hold nearby places of interest
 let placeIndex = 0; // Index to track the current place being shown
 
-// Define the initMap() function
+// Define the initMap() function (initialise the map)
 function initMap() {
     console.log("Initializing map...");
     map = new google.maps.Map(document.getElementById('map'), {
@@ -14,12 +14,12 @@ function initMap() {
         zoom: 12
     });
 
-    // Custom marker icon with a different hue
+// Custom marker icon with a different hue
     const redIcon = {
         url: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png', // URL to the default red marker icon
     };
 
-    // Load and parse the KML file
+// Load and parse the KML file
     fetch('StreetandPlacesKML.kml') // Replace with the correct path to your KML file
     .then(response => response.text())
     .then(kmlText => {
@@ -43,79 +43,80 @@ function initMap() {
             var photoUrl = placemark.getElementsByTagName('PHOTOURL')[0]?.textContent || '';
             var hyperlink = placemark.getElementsByTagName('HYPERLINK')[0]?.textContent || '';
 
-            // Create custom content for the info window
-            var contentHtml = `
-                <div class="info-window-content">
-                    <h4>${name}</h4>
-                    <p>${description}</p>
-                    ${photoUrl ? `<img src="${photoUrl}" alt="Photo" />` : ''}
-                    ${hyperlink ? `<a href="${hyperlink}" target="_blank">Read more here</a>` : ''}
-                    <div class="custom-close-button">X</div>
-                </div>
-            `;
+// Create custom content for the info window
+    var contentHtml = `
+        <div class="info-window-content">
+            <h4>${name}</h4>
+            <p>${description}</p>
+            ${photoUrl ? `<img src="${photoUrl}" alt="Photo" />` : ''}
+            ${hyperlink ? `<a href="${hyperlink}" target="_blank">Read more here</a>` : ''}
+            <div class="custom-close-button">X</div>
+        </div>
+    `;
 
-            // Log the content to verify
-            console.log('Info window content:', contentHtml);
+// Log the content to verify
+    console.log('Info window content:', contentHtml);
 
-            // Create a marker for each place
-            var coordinates = placemark.getElementsByTagName('coordinates')[0].textContent.trim().split(',');
-            var lng = parseFloat(coordinates[0]);
-            var lat = parseFloat(coordinates[1]);
+// Create a marker for each place
+    var coordinates = placemark.getElementsByTagName('coordinates')[0].textContent.trim().split(',');
+    var lng = parseFloat(coordinates[0]);
+    var lat = parseFloat(coordinates[1]);
 
-            var marker = new google.maps.Marker({
-                position: { lat: lat, lng: lng },
-                map: map,
-                title: name, // Set the title of the marker to the name of the place
-                icon: redIcon // Use the custom red marker icon
+    var marker = new google.maps.Marker({
+        position: { lat: lat, lng: lng },
+        map: map,
+        title: name, // Set the title of the marker to the name of the place
+        icon: redIcon // Use the custom red marker icon
+    });
+
+// Store place data
+    places.push({
+        name: name,
+        description: description,
+        photoUrl: photoUrl,
+        hyperlink: hyperlink,
+        lat: lat,
+        lng: lng
+    });
+
+// Add click event listener to show info window
+    google.maps.event.addListener(marker, 'click', (function(marker, contentHtml) {
+        return function() {
+            // Close any previously opened info window
+            if (currentInfoWindow) {
+                currentInfoWindow.close();
+            }
+
+            // Create a new info window with the custom content
+            var infoWindow = new google.maps.InfoWindow({
+                content: contentHtml,
+                pixelOffset: new google.maps.Size(0, -30) // Adjust to remove the default arrow
             });
 
-            // Store place data
-            places.push({
-                name: name,
-                description: description,
-                photoUrl: photoUrl,
-                hyperlink: hyperlink,
-                lat: lat,
-                lng: lng
-            });
+// Open the info window
+        infoWindow.open(map, marker);
+        currentInfoWindow = infoWindow;
 
-            // Add click event listener to show info window
-            google.maps.event.addListener(marker, 'click', (function(marker, contentHtml) {
-                return function() {
-                    // Close any previously opened info window
-                    if (currentInfoWindow) {
-                        currentInfoWindow.close();
-                    }
+        // Add custom close button event
+        google.maps.event.addListenerOnce(infoWindow, 'domready', function() {
+            const customCloseButton = document.querySelector('.custom-close-button');
+            if (customCloseButton) {
+                customCloseButton.addEventListener('click', function() {
+                    infoWindow.close();
+                });
+            }
+        });
+    };
+})(marker, contentHtml));
+}
 
-                    // Create a new info window with the custom content
-                    var infoWindow = new google.maps.InfoWindow({
-                        content: contentHtml,
-                        pixelOffset: new google.maps.Size(0, -30) // Adjust to remove the default arrow
-                    });
-
-                    // Open the info window
-                    infoWindow.open(map, marker);
-                    currentInfoWindow = infoWindow;
-
-                    // Add custom close button event
-                    google.maps.event.addListenerOnce(infoWindow, 'domready', function() {
-                        const customCloseButton = document.querySelector('.custom-close-button');
-                        if (customCloseButton) {
-                            customCloseButton.addEventListener('click', function() {
-                                infoWindow.close();
-                            });
-                        }
-                    });
-                };
-            })(marker, contentHtml));
-        }
-
-        // Log places array to verify
+// Log places array to verify
         console.log('Places:', places);
 
-        // Get the user's current location
+// Get the user's current location
         getUserLocation();
     })
+
     .catch(error => console.error('Error loading KML file:', error));
 }
 
@@ -191,14 +192,14 @@ function showPlaceAlert(place) {
     alertElement.innerHTML = alertContent;
     document.body.appendChild(alertElement);
 
-    // Position the alert at the center of the screen
+// Position the alert (near top of screen so it doesn't cover title)
     alertElement.style.position = 'fixed';
     alertElement.style.top = '20%';
     alertElement.style.left = '50%';
     alertElement.style.transform = 'translate(-50%, -50%)';
     alertElement.style.zIndex = '1000';
 
-    // Set up event listeners for the buttons
+// Set up event listeners for the buttons
     document.getElementById('nextPlaceBtn').addEventListener('click', showNextPlace);
     document.getElementById('stopAlertsBtn').addEventListener('click', stopAlerts);
 }
