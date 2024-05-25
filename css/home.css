@@ -3,7 +3,7 @@
 * {
     @font-face {
         font-family: Circular Std;
-        src: url('resources/CircularStd-Book.otf')
+        src: url('vscode-remote://codespaces%2Bvigilant-acorn-q7x5p4545jvh9x67/workspaces/singalore/resources/CircularStd-Book.otf')
     }
     font-family: Circular Std;
     font-weight: 0.01rem;
