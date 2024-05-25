@@ -74,33 +74,6 @@ h2 {
     margin-bottom: 2%;
 }
 
-a, #primaryResearch, #secondaryResearch { 
-    color: #FEB52F;
-    font-weight: bold;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-#primaryResearchContainer h2 { 
-    font-size: 18px;
-}
-
-#secondaryResearchContainer h2 { 
-    font-size: 18px;
-}
-
-ol { 
-    color:#3D4C8C;
-    font-weight: 500;
-    line-height: 100%;
-    padding-left: 5%;
-    padding-right: 5%;
-}
-
-li {
-    padding-left: 1.5%;
-}
-
 #primaryResearchContainer { 
     margin-top: 30px; 
     padding: 36px;
@@ -113,6 +86,15 @@ li {
     text-align: left;
 }
 
+#primaryResearchContainer h2 { 
+    font-size: 18px;
+    color: #FEB52F;
+}
+
+#primaryResearchContainer b { 
+    color: #FEB52F;
+}
+
 #secondaryResearchContainer { 
     margin-top: 30px; 
     padding: 36px;
@@ -123,6 +105,36 @@ li {
     font-weight: 200;
     width: 100%;
     text-align: left;
+}
+
+#secondaryResearchContainer h2 { 
+    font-size: 18px;
+    color: #FEB52F;
+}
+
+#secondaryResearchContainer a { 
+    color: #FEB52F;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+ol { 
+    color:#3D4C8C;
+    line-height: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+ul { 
+    line-height: 100%;
+    padding-left: 3%;
+    padding-right: 5%;
+    padding-top: 3px;
+}
+
+li {
+    padding-left: 1%;
+    padding-bottom: 2%;
 }
 
 #aboutTitle {
@@ -163,6 +175,12 @@ li {
 }
 
 .hyperlink { 
+    color: #3D4C8C;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a { 
     color: #3D4C8C;
     font-weight: bold;
     text-decoration: none;

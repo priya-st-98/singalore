@@ -1,4 +1,5 @@
 /* STYLING FOR EVERYTHING */
+
 * {
     @font-face {
         font-family: Circular Std;
@@ -248,4 +249,14 @@ h5.legalDisclaimer {
     overflow: visible !important;
     max-width: none !important;
     max-height: none !important;
+}
+
+a { 
+    color: #3D4C8C;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#credits {
+    color: #000000;
 }
