@@ -3,7 +3,7 @@
 * {
     @font-face {
         font-family: Circular Std;
-        src: url('resources/CircularStd-Book');
+        src: url('.resources/CircularStd-Book');
     }
     font-family: Circular Std;
     font-weight: 0.01rem;
