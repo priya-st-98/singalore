@@ -72,6 +72,7 @@ h2 {
     font-size: 24px;
     text-align: left;
     margin-bottom: 2%;
+    letter-spacing: -0.03rem;
 }
 
 #primaryResearchContainer { 
@@ -121,13 +122,11 @@ h2 {
 ol { 
     color:#3D4C8C;
     font-weight: 500;
-    line-height: 100%;
     padding-left: 5%;
     padding-right: 5%;
 }
 
 ul { 
-    line-height: 100%;
     padding-left: 3%;
     padding-right: 5%;
     padding-top: 3px;
@@ -148,7 +147,7 @@ ol li {
     text-align: center;
     font-size: 100px;
     color: #3D4C8C;
-    letter-spacing: -0.2rem;
+    letter-spacing: -0.25rem;
     z-index: 1;
     line-height: 85%;
     margin-bottom: 5%;
