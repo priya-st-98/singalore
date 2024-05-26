@@ -1,16 +1,26 @@
 /* STYLING FOR EVERYTHING */
 
+/*
+    font-family: 'Circular Std';
+    src:
+      local("CircularStd"),
+      url(resources/CircularStd-Book.otf) format("opentype") tech(color-COLRv1),
+      url("resources/CircularStd-Book.otf") format("opentype"),
+      url("resources/CircularStd-Book.woff") format("woff");
+
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
 * {
-    @font-face {
-        font-family: Circular Std;
-        src: url('.resources/CircularStd-Book');
-    }
-    font-family: Circular Std;
+    font-family: 'DM Sans';
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* ensures padding and border are included in the element's total width and height */
+    box-sizing: border-box;
+    letter-spacing: -0.01rem;
 }
 
+        
 html, body {
     height: 100%;
     margin: 0;
@@ -40,7 +50,7 @@ body {
     position: absolute;
     left: 0;
     right: 0;
-    top: -50px;
+    top: -80px;
     z-index: -5;
 
 }
@@ -56,8 +66,8 @@ body {
     margin-top: 400px; /* adjust to push up and down */
     box-sizing: border-box; /* includes padding in the element's total width and height */
     z-index: 1;
-    padding-left: 26%;
-    padding-right: 26%;
+    padding-left: 22%;
+    padding-right: 22%;
     padding-bottom: 8%;
 }
 
@@ -80,8 +90,8 @@ h2 {
     background-color: #8F3A38;
     border-radius: 30px;
     color: #ffffff;
-    font-size: 13px;
-    font-weight: 200;
+    font-size: 14px;
+    font-weight: 300;
     width: 100%;
     text-align: left;
 }
@@ -101,8 +111,8 @@ h2 {
     background-color: #3D4C8C;
     border-radius: 30px;
     color: #ffffff;
-    font-size: 13px;
-    font-weight: 200;
+    font-size: 14px;
+    font-weight: 300;
     width: 100%;
     text-align: left;
 }
@@ -120,6 +130,7 @@ h2 {
 
 ol { 
     color:#3D4C8C;
+    font-weight: 500;
     line-height: 100%;
     padding-left: 5%;
     padding-right: 5%;
@@ -132,16 +143,22 @@ ul {
     padding-top: 3px;
 }
 
-li {
+ul li {
     padding-left: 1%;
     padding-bottom: 2%;
+}
+
+ol li {
+    padding-left: 1%;
+    padding-bottom: 0%;
+    font-weight: 700;
 }
 
 #aboutTitle {
     text-align: center;
     font-size: 100px;
     color: #3D4C8C;
-    letter-spacing: -0.35rem;
+    letter-spacing: -0.2rem;
     z-index: 1;
     line-height: 85%;
     margin-bottom: 5%;
