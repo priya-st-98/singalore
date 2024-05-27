@@ -54,6 +54,7 @@ h1 {
     color: #3D4C8C;
     letter-spacing: -0.25rem;
     z-index: 1;
+    padding-bottom: 0px;
 }
 
 h2 {
@@ -63,6 +64,7 @@ h2 {
     letter-spacing: -0.07rem;
     text-align: center;
     line-height: 95%;
+    padding-top: 0px;
     z-index: 1;
 }
 
