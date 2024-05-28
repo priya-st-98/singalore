@@ -173,8 +173,8 @@ ol li {
     font-weight: bold;
     position: fixed;
     z-index: 5;
-    top: 50px;
-    left: 30px;
+    top: 70px;
+    left: 40px;
 }
 
 #homePage:hover {
@@ -191,4 +191,49 @@ a {
     color: #3D4C8C;
     font-weight: bold;
     text-decoration: none;
+}
+
+@media only screen and (max-width: 767px) {
+    #aboutTitle {
+        margin-top: -10px; /* Higher H1 on mobile */
+        font-size: 7em; /* Adjust font size for mobile */
+        margin-bottom: 10px;
+    }
+
+    #aboutContainer { 
+        margin-top: 340px;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    #primaryResearchContainer { 
+        padding-left: 11%;
+        padding-right: 9%;
+    }
+    
+    #primaryResearchContainer h2 { 
+        font-size: 18px;
+        color: #FEB52F;
+        padding-bottom: 10px;
+    }
+    
+    #primaryResearchContainer b { 
+        color: #FEB52F;
+        padding-left: 6px;
+    }
+    
+    #secondaryResearchContainer { 
+        padding-left: 11%;
+        padding-right: 9%;
+    }
+    
+    #secondaryResearchContainer h2 { 
+        font-size: 18px;
+        padding-bottom: 10px;
+    }
+    
+    #secondaryResearchContainer b { 
+        padding-left: 6px;
+    }
+
 }
