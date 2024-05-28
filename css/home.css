@@ -33,6 +33,23 @@ hr {
     width: 30%;
 }
 
+/* STYLING FOR TOP BAR/BANNER */
+#topBar { 
+    width: 100%;
+    padding: 5px 0; /* Padding for top and bottom */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1; /* Ensure it stays on top */
+    margin: 0; /* Ensure no margin around the bar */
+    background-color: #8F3A38; /* Change this to the color you prefer */
+    text-align: center;
+    color: white; /* Text color */
+    font-weight: 500;
+    letter-spacing: -0.01rem;
+}
+
+
 /* STYLING FOR DRAGON PLAYGROUND HEADER */
 .headerImage {
     width: 100%;
@@ -42,7 +59,7 @@ hr {
     position: absolute;
     left: 0;
     right: 0;
-    top: -50px; /* Shift up by another 30px, total of 50px */
+    top: -30px; /* Shift up by another 30px, total of 50px */
     z-index: -5;
 
 }
@@ -52,19 +69,21 @@ h1 {
     text-align: center;
     font-size: 100px;
     color: #3D4C8C;
-    letter-spacing: -0.25rem;
+    letter-spacing: -0.2rem;
+    line-height: 80%;
     z-index: 1;
-    padding-bottom: 0px;
+    padding-top: 1%;
+    margin-top: -1%;
 }
 
 h2 {
     position: relative;
     font-size: 40px;
     color: #2e2a2a;
-    letter-spacing: -0.07rem;
+    letter-spacing: -0.05rem;
     text-align: center;
     line-height: 95%;
-    padding-top: 0px;
+    padding-top: 1.5%;
     z-index: 1;
 }
 
@@ -153,7 +172,7 @@ h4 {
     font-size: 16px; /* Adjust font size as needed */
     font-weight: bold; /* Make the text bold */
     position: fixed; /* Positioning */
-    top: 30px; /* Adjust positioning from top */
+    top: 50px; /* Adjust positioning from top */
     left: 30px; /* Adjust positioning from left */
     z-index: 5;
 }
@@ -180,11 +199,11 @@ h5.legalDisclaimer {
 }
 
 #map { 
-    width: 95%; /* Ensure the map takes full width */
+    width: 80%; /* Ensure the map takes full width */
     height: 100%; /* Ensure the map takes full height */
     margin: 30px;
     padding: 30px;
-    border-radius: 20px;
+    border-radius: 5px;
     z-index: 1; /* Ensure the map is above other elements */
 }
 
