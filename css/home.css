@@ -278,3 +278,12 @@ a {
 #credits {
     color: #000000;
 }
+
+/* MEDIA QUERIES/MOBILE DEVICES */
+
+@media only screen and (max-width: 767px) {
+    h1 {
+        margin-top: 20px; /* Higher H1 on mobile */
+        font-size: 2em; /* Adjust font size for mobile */
+    }
+}
