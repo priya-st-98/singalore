@@ -6,6 +6,19 @@ let nearbyPlaces = [];
 let placeIndex = 0;
 let isMobile = window.innerWidth <= 768;
 
+document.addEventListener('DOMContentLoaded', function() {
+    loadGoogleMaps();
+    window.addEventListener('resize', () => {
+        isMobile = window.innerWidth <= 768;
+    });
+});
+
+function loadGoogleMaps() {
+    const script = document.createElement('script');
+    script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAo5tn_gD9gYTz-DKsNBvc5AGCjXHWifZo&callback=initMap';
+    document.head.appendChild(script);
+}
+
 function initMap() {
     console.log("Initializing map...");
     map = new google.maps.Map(document.getElementById('map'), {
@@ -20,27 +33,28 @@ function initMap() {
     fetch('StreetandPlacesKML.kml')
         .then(response => response.text())
         .then(kmlText => {
-            var parser = new DOMParser();
-            var kmlDoc = parser.parseFromString(kmlText, 'text/xml');
-            var placemarks = kmlDoc.getElementsByTagName('Placemark');
+            const parser = new DOMParser();
+            const kmlDoc = parser.parseFromString(kmlText, 'text/xml');
+            const placemarks = kmlDoc.getElementsByTagName('Placemark');
 
-            for (var i = 0; i < placemarks.length; i++) {
-                var placemark = placemarks[i];
-                var name = placemark.getElementsByTagName('SimpleData')[0]?.textContent || 'No Name';
-                var simpleDataElements = placemark.getElementsByTagName('SimpleData');
-                for (var j = 0; j < simpleDataElements.length; j++) {
-                    var simpleData = simpleDataElements[j];
-                    var nameAttribute = simpleData.getAttribute('name');
-                    if (nameAttribute === 'NAME') {
+            for (let i = 0; i < placemarks.length; i++) {
+                const placemark = placemarks[i];
+                let name = 'No Name';
+                const simpleDataElements = placemark.getElementsByTagName('SimpleData');
+
+                for (let j = 0; j < simpleDataElements.length; j++) {
+                    const simpleData = simpleDataElements[j];
+                    if (simpleData.getAttribute('name') === 'NAME') {
                         name = simpleData.textContent;
                     }
                 }
-                var descriptionNode = placemark.getElementsByTagName('description')[0];
-                var description = descriptionNode ? extractDescription(descriptionNode.textContent) : 'No Description';
-                var photoUrl = placemark.getElementsByTagName('PHOTOURL')[0]?.textContent || '';
-                var hyperlink = placemark.getElementsByTagName('HYPERLINK')[0]?.textContent || '';
 
-                var contentHtml = `
+                const descriptionNode = placemark.getElementsByTagName('description')[0];
+                const description = descriptionNode ? extractDescription(descriptionNode.textContent) : 'No Description';
+                const photoUrl = placemark.getElementsByTagName('PHOTOURL')[0]?.textContent || '';
+                const hyperlink = placemark.getElementsByTagName('HYPERLINK')[0]?.textContent || '';
+
+                const contentHtml = `
                     <div class="info-window-content">
                         <h4>${name}</h4>
                         <p>${description}</p>
@@ -52,11 +66,11 @@ function initMap() {
 
                 console.log('Info window content:', contentHtml);
 
-                var coordinates = placemark.getElementsByTagName('coordinates')[0].textContent.trim().split(',');
-                var lng = parseFloat(coordinates[0]);
-                var lat = parseFloat(coordinates[1]);
+                const coordinates = placemark.getElementsByTagName('coordinates')[0].textContent.trim().split(',');
+                const lng = parseFloat(coordinates[0]);
+                const lat = parseFloat(coordinates[1]);
 
-                var marker = new google.maps.Marker({
+                const marker = new google.maps.Marker({
                     position: { lat: lat, lng: lng },
                     map: map,
                     title: name,
@@ -78,7 +92,7 @@ function initMap() {
                             currentInfoWindow.close();
                         }
 
-                        var infoWindow = new google.maps.InfoWindow({
+                        const infoWindow = new google.maps.InfoWindow({
                             content: contentHtml,
                             pixelOffset: new google.maps.Size(0, -30)
                         });
@@ -99,21 +113,20 @@ function initMap() {
             }
 
             console.log('Places:', places);
-
             getUserLocation();
         })
         .catch(error => console.error('Error loading KML file:', error));
 }
 
 function extractDescription(html) {
-    var tmp = document.createElement('DIV');
+    const tmp = document.createElement('DIV');
     tmp.innerHTML = html;
 
-    var description = '';
-    var rows = tmp.querySelectorAll('tr');
+    let description = '';
+    const rows = tmp.querySelectorAll('tr');
     rows.forEach(row => {
-        var th = row.querySelector('th');
-        var td = row.querySelector('td');
+        const th = row.querySelector('th');
+        const td = row.querySelector('td');
         if (th && td && th.textContent === 'DESCRIPTION') {
             description = td.textContent;
         }
@@ -133,6 +146,7 @@ function getUserLocation() {
             findNearbyPlaces();
         }, error => {
             console.error('Error getting location:', error);
+            alert('Error getting location. Please check your browser settings.');
         });
     } else {
         alert('Geolocation is not supported by this browser.');
@@ -141,7 +155,7 @@ function getUserLocation() {
 
 function findNearbyPlaces() {
     nearbyPlaces = places.filter(place => {
-        let distance = calculateDistance(userLocation.lat, userLocation.lng, place.lat, place.lng);
+        const distance = calculateDistance(userLocation.lat, userLocation.lng, place.lat, place.lng);
         console.log(`Distance to ${place.name}: ${distance} km`);
         return distance < 1;
     });
@@ -219,17 +233,3 @@ function stopAlerts() {
         alertContainer.remove();
     }
 }
-
-function loadGoogleMaps() {
-    var script = document.createElement('script');
-    script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAo5tn_gD9gYTz-DKsNBvc5AGCjXHWifZo&callback=initMap';
-    document.head.appendChild(script);
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-    loadGoogleMaps();
-});
-
-window.addEventListener('resize', () => {
-    isMobile = window.innerWidth <= 768;
-});
