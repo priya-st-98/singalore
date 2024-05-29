@@ -46,6 +46,7 @@ hr {
     text-align: center;
     color: white; /* Text color */
     font-weight: 500;
+    font-size: 15px;
     letter-spacing: -0.01rem;
 }
 
@@ -213,7 +214,7 @@ h5.legalDisclaimer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 400px; /* Adjust to push the container up by another 30px, total of 50px */
+    margin-top: 410px; /* Adjust to push the container up by another 30px, total of 50px */
     box-sizing: border-box; /* Include padding in the element's total width and height */
     z-index: 1;
 }
@@ -279,6 +280,38 @@ a {
     color: #000000;
 }
 
+#descriptionContainer {
+    display: flex;
+}
+
+#descriptionContainer1, #descriptionContainer2 {
+    flex: 1; /* This makes both divs take up equal space */
+    padding: 10px; /* Optional padding */
+    margin: 10px; /* Optional margin */
+    border-radius: 30px;
+    font-size: 16px;
+}
+
+#descriptionContainer1 {
+    background-color:#3D4C8C;
+    padding: 20px;
+    color: #FEB52F;
+}
+
+#descriptionContainer1 b {
+    font-size: 18px;
+}
+
+#descriptionContainer2 b {
+    font-size: 18px;
+}
+
+#descriptionContainer2 {
+    background-color:#8F3A38;
+    padding: 20px;
+    color: #FEB52F;
+}
+
 /* MEDIA QUERIES/MOBILE DEVICES */
 
 @media only screen and (max-width: 767px) {
@@ -298,4 +331,23 @@ a {
         padding-left: 18px;
         padding-right: 18px;
     }
+
+    #alertContainer {
+        width: 70%; /* Make the alert container wider on mobile */
+        left: 50%; /* Center horizontally */
+        top: 20%; /* Center vertically */
+        transform: translate(-20%, -50%); /* Adjust positioning */
+    }
+
+    #descriptionContainer {
+        display: block; /* Stack the divs vertically on small screens */
+    }
+
+    #descriptionContainer1, #descriptionContainer2 {
+        margin: 10px auto; /* Center the divs with auto left/right margins */
+        width: 90%; /* Adjust the width as needed */
+        height: 170px;
+        vertical-align: middle;
+    }
+}
 }
